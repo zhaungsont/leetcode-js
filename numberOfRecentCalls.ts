@@ -9,8 +9,8 @@ export default class RecentCounter {
 		this.requestHistory.enqueue(t);
 		// remove any node that's older than 3000 milliseconds ago
 		while (
-			this.requestHistory.last !== null &&
-			this.requestHistory.last.value < t - 3000
+			this.requestHistory.first !== null &&
+			this.requestHistory.first.value < t - 3000
 		) {
 			// as long as the last call is over 3000 milliseconds older than the current ping, remove it from the list.
 			this.requestHistory.dequeue();
@@ -23,15 +23,20 @@ export default class RecentCounter {
 
 class ListNode {
 	value: any;
-	next: ListNode | null;
-	prev: ListNode | null;
+	left: ListNode | null;
+	right: ListNode | null;
 	constructor(value: any) {
 		this.value = value;
-		this.next = null;
-		this.prev = null;
+		this.left = null;
+		this.right = null;
 	}
 }
 
+/*
+
+enqueue ->-> last -> -> -> -> first ->-> dequeue
+
+*/
 class LinkedList {
 	first: ListNode | null;
 	last: ListNode | null;
@@ -44,12 +49,13 @@ class LinkedList {
 
 	enqueue(value: any) {
 		const newNode = new ListNode(value);
-		if (!this.first) {
+		if (!this.last) {
 			this.first = newNode;
 			this.last = newNode;
 		} else {
-			newNode.next = this.first;
-			this.first = newNode;
+			newNode.right = this.last;
+			this.last.left = newNode;
+			this.last = newNode;
 		}
 		this.length++;
 
@@ -57,7 +63,7 @@ class LinkedList {
 	}
 
 	dequeue() {
-		if (!this.length) return null;
+		if (!this.first) return null;
 
 		if (this.length === 1) {
 			this.first = null;
@@ -66,9 +72,9 @@ class LinkedList {
 			return null;
 		}
 
-		const poppedNode = this.last;
-		this.last = this.last!.prev;
-		this.last!.next = null;
+		const poppedNode = this.first;
+		this.first = this.first.left;
+		this.first!.right = null;
 		this.length--;
 
 		return poppedNode;
@@ -77,10 +83,10 @@ class LinkedList {
 	traverse() {
 		if (!this.length) return null;
 
-		let thisNode = this.first;
+		let thisNode = this.last;
 		while (thisNode !== null) {
 			console.log(thisNode);
-			thisNode = thisNode.next;
+			thisNode = thisNode.right;
 		}
 	}
 }
