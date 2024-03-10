@@ -1,6 +1,7 @@
 // import RecentCounter from './numberOfRecentCalls';
 import reverseList from './reverseLinkedList';
 import leafSimilar from './leafSimilarTrees';
+import compress from './stringCompression';
 // const a = { val: 3, next: null };
 // const b = { val: 2, next: a };
 // const c = { val: 1, next: b };
@@ -102,16 +103,22 @@ const b = {
 	},
 };
 
-console.log(leafSimilar(test, b));
+// console.log(leafSimilar(test, b));
 
-const a: any[] = [];
-
-function fn(i: number, arr: any[]) {
-	if (i > 5) return;
-	arr.push(i);
-	i++;
-	fn(i, arr);
-}
-
-// fn(1, a);
-// console.log(a);
+const debugCompressStr = [
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'a',
+	'b',
+	'b',
+];
+console.log(compress(debugCompressStr));

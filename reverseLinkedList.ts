@@ -32,3 +32,18 @@ function reverseList(head: ListNode | null): ListNode | null {
 }
 
 export default reverseList;
+
+/*
+OTHER SOLUTIONS
+
+// ES6 Destructuring
+
+var reverseList = function(head) {
+    let [prev, current] = [null, head]
+    while(current) {
+        [current.next, prev, current] = [prev, current, current.next]
+    }
+    return prev
+}
+
+*/
