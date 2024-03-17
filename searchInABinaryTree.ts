@@ -31,10 +31,10 @@ export function searchBST(root: TreeNode | null, val: number): TreeNode | null {
 	return root;
 }
 
-const one = { val: 1, left: null, right: null };
-const three = { val: 3, left: null, right: null };
-const two = { val: 2, left: one, right: three };
-const seven = { val: 7, left: null, right: null };
-const four = { val: 4, left: two, right: seven };
+// const one = { val: 1, left: null, right: null };
+// const three = { val: 3, left: null, right: null };
+// const two = { val: 2, left: one, right: three };
+// const seven = { val: 7, left: null, right: null };
+// const four = { val: 4, left: two, right: seven };
 
-console.log('search three', searchBST(four, 3));
+// console.log('search three', searchBST(four, 3));
