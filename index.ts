@@ -4,6 +4,7 @@ import leafSimilar from './leafSimilarTrees';
 import compress from './stringCompression';
 import { searchBST } from './searchInABinaryTree';
 import { guessNumber } from './guessNumberHigherOrLower';
+import { maxVowels } from './MaxumumNumbersOfVowelsInASubstringOfGivenLength';
 // const a = { val: 3, next: null };
 // const b = { val: 2, next: a };
 // const c = { val: 1, next: b };
@@ -133,4 +134,6 @@ const four = { val: 4, left: two, right: seven };
 
 // console.log('search three', searchBST(four, 4));
 
-console.log(guessNumber(1234));
+// console.log(guessNumber(1234));
+
+console.log(maxVowels('leetcode', 3));
