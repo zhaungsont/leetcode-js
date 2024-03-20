@@ -3,6 +3,7 @@ import reverseList from './reverseLinkedList';
 import leafSimilar from './leafSimilarTrees';
 import compress from './stringCompression';
 import { searchBST } from './searchInABinaryTree';
+import { guessNumber } from './guessNumberHigherOrLower';
 // const a = { val: 3, next: null };
 // const b = { val: 2, next: a };
 // const c = { val: 1, next: b };
@@ -122,7 +123,7 @@ const debugCompressStr = [
 	'b',
 	'b',
 ];
-console.log(compress(debugCompressStr));
+// console.log(compress(debugCompressStr));
 
 const one = { val: 1, left: null, right: null };
 const three = { val: 3, left: null, right: null };
@@ -130,4 +131,6 @@ const two = { val: 2, left: one, right: three };
 const seven = { val: 7, left: null, right: null };
 const four = { val: 4, left: two, right: seven };
 
-console.log('search three', searchBST(four, 4));
+// console.log('search three', searchBST(four, 4));
+
+console.log(guessNumber(7));
