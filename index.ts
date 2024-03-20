@@ -133,4 +133,4 @@ const four = { val: 4, left: two, right: seven };
 
 // console.log('search three', searchBST(four, 4));
 
-console.log(guessNumber(7));
+console.log(guessNumber(1234));

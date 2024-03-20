@@ -15,36 +15,19 @@ function guess(number: number): number {
 	return 0;
 }
 
-export function guessNumber(n: number): number {
-	let floor = 1,
-		ceiling = n;
-	let middle = Math.ceil(n / 2);
-	let result = guess(middle);
-	console.log('loop 0 middle = ', middle);
-	while (result !== 0) {
-		console.log('===loop===');
+export function guessNumber(right: number, left: number = 1): number {
+	const middle = Math.ceil((left + right) / 2);
+	switch (guess(middle)) {
+		case 0:
+			return middle;
 
-		if (result < 0) {
-			// Your guess is higher than the number I picked
-			console.log('===guess is higher than the number===');
-			ceiling = middle - 1;
-		} else {
-			console.log('===guess is lower than the number===');
-			// Your guess is lower than the number I picked
-			floor = middle + 1;
-		}
-		middle = Math.ceil((floor + ceiling) / 2);
-		console.log('===calced new middle===', middle);
-		result = guess(middle);
-		console.log('===calced new result===', result);
-		console.log('====end====');
+		case 1:
+			return guessNumber(right, middle + 1);
+
+		case -1:
+			return guessNumber(middle - 1, left);
+
+		default:
+			return 666;
 	}
-	return middle;
 }
-
-/**
-1,2,3,4,5
-    ^
-
-
- */
